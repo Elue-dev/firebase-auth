@@ -5,6 +5,7 @@ import Dashboard from "./components/Dashboard";
 import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
 import ForgotPassword from './components/ForgotPassword';
+// import UpdateProfile from './components/UpdateProfile';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <div className="w-00" style={{ maxWidth: '400px'}}>
         <Router>
           <Routes>
-            <Route exact path='/'element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+            <Route exact path='/' element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+            {/* <Route path='/update-profile' element={<PrivateRoute><UpdateProfile /></PrivateRoute>} /> */}
             <Route path='/signup' element={<Signup />} />
             <Route path='/login' element={<Login />} />
             <Route path='/forgot-password' element={<ForgotPassword />} />
