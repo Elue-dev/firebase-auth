@@ -25,7 +25,7 @@ export default function Dashboard() {
             <Card.Body style={{ minWidth: '25vw'}}>
                 <h2 className='text-center mb-4'>Dashboard</h2>
                 {error && <Alert variant='danger'>{error}</Alert>}
-                <h4>Welcome to your dashboard</h4>
+                Welcome to your dashboard
                 <strong>Email:</strong> {user.email} <br />
                 {/* <Link to='/update-profile'  className='btn btn-primary w-100 mt-3'>Update Profile</Link> */}
             </Card.Body>
