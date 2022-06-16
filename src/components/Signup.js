@@ -19,17 +19,24 @@ export default function Signup() {
             return setError('Passwords do not match')
         }
 
-        if (passwordRef.current.value.length < 6 || passwordRef.current.value.length > 9  ) {
-            setError('Password must be between 6-9 characters')
-        } 
-
         try {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
             navigate('/login')
         } catch (err){
-            setError(err.message)
+            if (err.message === 'Firebase: Error (auth/email-already-in-use).') {
+                setError('Email already in use')
+            }
+            if (err.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
+                setError('Password should be at least 6 characters')
+            }
+            if (err.message === 'Firebase: Error (auth/invalid-email).') {
+                setError('Invalid email')
+            }
+            if (err.message === 'Firebase: Error (auth/network-request-failed).') {
+                setError('Please check your internet connection')
+            }
         }
 
         setLoading(false)

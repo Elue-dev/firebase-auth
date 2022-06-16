@@ -9,7 +9,8 @@ import {
     GoogleAuthProvider,
     signInWithPopup,
     updateEmail,
-    updatePassword
+    updatePassword,
+    deleteUser
 } from 'firebase/auth'
 
 const AuthContext = React.createContext()
@@ -43,12 +44,16 @@ export function AuthProvider({ children }) {
         return signInWithPopup(auth, googleAuthProvider)
     }
 
-    function updateEmail(email) {
+    function updateE(email) {
         return updateEmail(auth.user, email)
     }
 
-    function updatePassword(password) {
+    function updateP(password) {
         return updatePassword(auth.user, password)
+    }
+
+    function deleteAccount(user) {
+        return deleteUser(auth, user)
     }
     
 
@@ -70,8 +75,9 @@ export function AuthProvider({ children }) {
         logout,
         resetPassword,
         googleSignIn,
-        updateEmail,
-        updatePassword
+        updateE,
+        updateP,
+        deleteAccount
     }
 
   return (

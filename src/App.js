@@ -5,7 +5,7 @@ import Dashboard from "./components/Dashboard";
 import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
 import ForgotPassword from './components/ForgotPassword';
-// import UpdateProfile from './components/UpdateProfile';
+import UpdateProfile from './components/UpdateProfile';
 
 function App() {
   return (

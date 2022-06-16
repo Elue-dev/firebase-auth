@@ -22,7 +22,15 @@ export default function Login() {
             await login(emailRef.current.value, passwordRef.current.value)
             navigate('/')
         } catch (err){
-            setError(err.message)
+            if (err.message === 'Firebase: Error (auth/user-not-found).') {
+                setError('User not found')
+            }
+            if (err.message === 'Firebase: Error (auth/wrong-password).') {
+                setError('Wrong password')
+            }
+            if (err.message === 'Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).') {
+                setError('Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later')
+            }
         }
 
         setLoading(false)
