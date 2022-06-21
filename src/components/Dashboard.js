@@ -41,7 +41,6 @@ export default function Dashboard() {
                 {message && <Alert variant='success'>{message}</Alert>}
                 Welcome to your dashboard <br />
                 <strong>Email:</strong> {user.email} <br />
-                <img src={user.photoURL} />
                 {/* <Link to='/update-profile'  className='btn btn-primary w-100 mt-3'>Update Profile</Link> */}
             </Card.Body>
         </Card>
